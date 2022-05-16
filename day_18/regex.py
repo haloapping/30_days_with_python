@@ -143,7 +143,26 @@ else:
     print(False)
 
 # Exercise 3
+# 1
 sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?'''
 regex_pattern = r"$|%|@|&|#|!|;|,"
 clean_sentence = re.sub(regex_pattern, "", sentence, count=0)
 print(clean_sentence)
+
+# 2
+
+
+def most_frequent_word(clean_txt):
+    freq_words = {}
+    words = clean_txt.split()
+
+    for word in words:
+        if word not in freq_words:
+            freq_words[word] = 0
+
+        freq_words[word] += 1
+
+    return sorted(freq_words.items(), key=lambda items: items[1], reverse=True)
+
+
+print(most_frequent_word(clean_sentence))
